@@ -4,20 +4,31 @@ $a2 = [-1, 1, -2, 2, 3, -3, -4, 5];
 $a3 = [-0.01, -0.0001, -.15];
 $a4 = ["-1", "2", "-3", "4", "-5", "5", "-6", "6", "-7", "7"];
 
+// ucid = aj737
+// date = 10/01/2023
 function bePositive($arr) {
+    
+    $arrlen = count($arr);
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
-    echo "<br>Positive output:<br>";
-    $result = array_map(function($value){
-        return abs ($value);
-    },$arr);
-
-    foreach($result as $value){
-        echo var_export ($value,true) . "<br>";
+    echo "<br>Positive output: <br>";
+    for ($a = 0; $a < $arrlen; $a++) {
+        if (is_string($arr[$a])){
+        $arr[$a] = abs($arr[$a]);
+        echo strval($arr[$a]), " ";
+        echo var_dump(strval($arr[$a])), "<br>";
     }
+    
+        else {
+            echo abs($arr[$a]), " ";
+            echo var_dump(abs($arr[$a])), "<br>"; 
+        }
+        }
+    
+}
     //note: use the $arr variable, don't directly touch $a1-$a4
     //TODO use echo to output all of the values as positive (even if they were originally positive) and maintain the original datatype
     //hint: may want to use var_dump() or similar to show final data types
-}
+
 echo "Problem 3: Be Positive<br>";
 ?>
 <table>
