@@ -7,19 +7,87 @@
     <script>
         window.addEventListener("load", () => {
             console.log("loaded via javascript");
+            getCurrentSelection();
+            addEventListener('click', (event) => {getCurrentSelection();});
             //TODO: add any extra onload processing you may need here
         });
         function getCurrentSelection() {
-            setTimeout(() => {
-                //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
-                //TODO: add code for processing the current selection 
+    setTimeout(() => {
+        // Get all the navigation links
+        const navLinks = document.querySelectorAll('nav a');
 
-                //Note: likely you'll want to call updateCurrentPage towards the end
-            }, 100);
-        }
+        // Add a click event listener to each link
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                // Prevent the default link behavior, i.e., navigating to a new page
+                event.preventDefault();
+
+                // Get the text content of the clicked link
+                const linkText = link.textContent;
+
+                // Update the content of the <h1> and <title> tags with the link text
+                document.querySelector('h1').textContent = linkText;
+                document.title = linkText;
+
+                // Call the updateCurrentPage function with the link text
+                updateCurrentPage(linkText);
+            });
+        });
+    }, 100); // This timeout may not be necessary, you can remove it if it's not needed
+}
     </script>
     <style>
         /* TODO: make edits here */
+        nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    justify-content: space-around;
+}
+
+/* Get rid of the navigation list item markers */
+nav li {
+    list-style: inline-block;
+}
+
+/* Give the navigation a background */
+nav {
+    background-color: #e0e781; /* Choose your background color */
+}
+
+/* Make the links change color on mouseover */
+nav a {
+    color: #0c0000; /* Default link color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #6180c7; /* Change link color on hover */
+}
+
+/* Change the "bullet points" of the entire list to checkmarks (✓) */
+h3 ~ ul li::marker {
+    content: "✓";
+    margin-right: 5px;
+}
+
+/* Use CSS to uppercase the first character of the content in the <h1> tag and the <a> tags */
+h1, nav a {
+    text-transform: uppercase;
+}
+
+   /* Create a mint green background with a linear gradient */
+/* Set an image from a URL as the background */
+body {
+    background-image: url('https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/bts-logo-chromebook-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+
     </style>
     <!-- make the necessary edits above this line -->
 
