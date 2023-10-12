@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <h2>test first website</h2>
 
 <script>
@@ -16,3 +17,8 @@ if($math==13){
 }
 ?>
 
+=======
+<?php
+echo "some php test"
+?>
+>>>>>>> Stashed changes

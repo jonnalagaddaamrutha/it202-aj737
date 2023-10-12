@@ -3,6 +3,7 @@ $a1 = [10.001, 11.591, 0.011, 5.991, 16.121, 0.131, 100.981, 1.001];
 $a2 = [1.99, 1.99, 0.99, 1.99, 0.99, 1.99, 0.99, 0.99];
 $a3 = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
 $a4 = [10.01, -12.22, 0.23, 19.20, -5.13, 3.12];
+<<<<<<< Updated upstream
 
 // ucid = aj737
 // date = 10/01/2023
@@ -24,6 +25,15 @@ function getTotal($arr) {
     echo "The total is " . var_export($total, true);
 }
 
+=======
+function getTotal($arr) {
+    echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
+    $total = 0.00;
+    //TODO do adding here
+    //TODO do rounding stuff here
+    echo "The total is " . var_export($total, true);
+}
+>>>>>>> Stashed changes
 echo "Problem 2: Adding Floats<br>";
 ?>
 <table>
