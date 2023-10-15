@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Problem 1</title>
+    <meta charset="utf-8" />
+    <script>
+        window.addEventListener("load", () => {
+            console.log("loaded via javascript");
+            getCurrentSelection();
+            addEventListener('click', (event) => {getCurrentSelection();});
+            //TODO: add any extra onload processing you may need here
+                        });
+             // UCID - aj737
+             // Date = October 15, 2023
+
+        function getCurrentSelection() {
+    setTimeout(() => {
+        // Get all the navigation links
+        const navLinks = document.querySelectorAll('nav a');
+
+        // Add a click event listener to each link
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                // Prevent the default link behavior, i.e., navigating to a new page
+                event.preventDefault();
+
+                // Get the text content of the clicked link
+                const linkText = link.textContent;
+
+                // Update the content of the <h1> and <title> tags with the link text
+                document.querySelector('h1').textContent = linkText;
+                document.title = linkText;
+
+                // Call the updateCurrentPage function with the link text
+                updateCurrentPage(linkText);
+            });
+        });
+    }, 100); // This timeout may not be necessary, you can remove it if it's not needed
+}
+   // I added a bts image as the background to the website
+   //  I changed the colour of the background and made a vertical list of the checklist 
+   </script>
+    <style> 
+    
+        /* TODO: make edits here */
+        nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    justify-content: space-around;
+}
+
+/* Get rid of the navigation list item markers */
+nav li {
+    list-style: inline-block;
+}
+
+/* Give the navigation a background */
+nav {
+    background-color: #e0e781; /* Choose your background color */
+}
+
+/* Make the links change color on mouseover */
+nav a {
+    color: #0c0000; /* Default link color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #6180c7; /* Change link color on hover */
+}
+
+/* Change the "bullet points" of the entire list to checkmarks (✓) */
+h3 ~ ul li::marker {
+    content: "✓";
+    margin-right: 5px;
+}
+
+/* Use CSS to uppercase the first character of the content in the <h1> tag and the <a> tags */
+h1, nav a {
+    text-transform: uppercase;
+}
+
+   /* Create a mint green background with a linear gradient */
+/* Set an image from a URL as the background */
+body {
+    background-image: url('https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/bts-logo-chromebook-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+
+    </style>
+    <!-- make the necessary edits above this line -->
+
+
+    <!-- Do not edit anything below this line, doing so will lose points-->
+    <script src="https://it202-spring-22.herokuapp.com/M3/problem1.js">
+            //Don't edit anything in this tag and do not delete it
+    </script>
+</head>
+<!-- Do not edit anything below this line, doing so will lose points-->
+
+<body onload="check();updateCurrentPage('start');">
+    <header>
+        <h2>Problem 1</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#login">login</a></li>
+            <li><a href="#register">register</a></li>
+            <li><a href="#profile">profile</a></li>
+            <li><a href="#logout">logout</a></li>
+        </ul>
+    </nav>
+    <h1></h1>
+    <h3>Challenges</h3>
+    <ul>
+        <li>Edit the given <code>&lt;style&gt;</code> tag to customize the appearance of this page
+            <ul>
+                <li>(1 pt) Make the navigation horizontal</li>
+                <li>(1 pt) Get rid of the navigation list item markers</li>
+                <li>(1 pt) Give the navigation a background</li>
+                <li>(1 pt) Make the links (or their surrounding area) change color on mouseover</li>
+                <li>(1 pt) Change the "bullet points" of this entire list to checkmarks (✓)</li>
+                <li>(1 pt) Use CSS to uppercase the first character of the content in the <code>&lt;h1&gt;</code> tag
+                    and the
+                    <code>&lt;a&gt;</code> tags
+                </li>
+                <li>(1 pt) Add some styling of your choice (that doesn't conflict with any requests in this assignment),
+                    this will be mentioned in the submission</li>
+            </ul>
+        </li>
+        <li>(1 pt) Any style applied to unordered list in the <code>&lt;nav&gt;</code> tag should not apply to this list
+            (i.e., nav
+            and this
+            list should
+            not appear identical)</li>
+        <li>
+            Any time a navigation link is clicked have it do the following:
+            <ul>
+                <li>(1 pt) Update the content of the <code>&lt;h1&gt;</code> tag with the link text</li>
+                <li>(1 pt) Update the content of the <code>&lt;title&gt;</code> tag with the link text</li>
+                <li>Hint: Get the word of the current navigation and pass it to updateCurrentPage()</li>
+            </ul>
+        </li>
+    </ul>
+    <footer></footer>
+</body>
+
+</html>
