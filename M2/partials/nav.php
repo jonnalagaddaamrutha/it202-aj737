@@ -30,8 +30,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
             <li><a href="shop.php">Shop</a></li>
             <li><a href="register.php">Register</a></li>
             <li><a href="cart.php">Cart</a></li>
-            
-
+        
 
         <?php endif; ?>
         <?php if (has_role('Admin')) : ?>
